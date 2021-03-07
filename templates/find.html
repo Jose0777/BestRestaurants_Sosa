@@ -1,0 +1,41 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Find Restaurants{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="home-button">
+        <a class="btn btn-warning btn-lg" href="{{ url_for('home') }}" role="button">Home</a>
+    </div>
+    <div class="restaurant-home">
+        <div class="col-lg-6 col-md-8 text-center box-restaurant">
+            <h3>{{restaurant.name}} </h3>
+            <div class="rating text-center">
+                 <label>Rating {{restaurant.rating}}</label><i class="fas fa-star star"></i><br>
+            </div>
+            <img class="img-restaurant" style="width:80%" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/09/bf/75/piano-para-amenizar-las.jpg" alt="Restaurant-image">
+            <div class="text-center">
+                <h5> Address: {{restaurant.address.street}} </h5>
+                <h5> Phone number: {{restaurant.contact.phone}} </h5>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-8 text-center">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.359475726946!2d{{restaurant.address.location.lng}}!3d{{restaurant.address.location.lat}}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI2JzI0LjIiTiA5OcKwMDcnMzcuNCJX!5e0!3m2!1sen!2smx!4v1615108056556!5m2!1sen!2smx" width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+
+{% endblock %}

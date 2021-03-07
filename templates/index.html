@@ -1,0 +1,37 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %} Find Restaurants {% endblock %}
+
+{% block content %}
+<div class="container ">
+    <h2 class="heading">Discover and Find a Restaurant in your State ☕</h2>
+    <div class="col-lg-6 col-md-4">
+    <div class="box-main">
+        <h1>Find a Restaurant in your state</h1>
+    </div>
+    <div class="main-search">
+        {{ wtf.quick_form(form, button_map={'submit': 'primary'}, novalidate=True) }}
+    </div>
+        {% if options ==[]: %}
+            {% for message in get_flashed_messages() %}
+                <p class="box-main"> {{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="col-lg-6 col-md-4 text-center">
+    <img class="main-img" src="https://c.tfstatic.com/w_689,h_538,c_fill,g_auto:subject,q_auto,f_auto/tf-product/homepage-hero/es-ES" alt="Delicious-food">
+    </div>
+</div>
+{% endblock %}
+
