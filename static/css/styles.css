@@ -77,6 +77,11 @@
     font-family: inherit;
     font-size: inherit;
 }
+
+.btn-rest-maps {
+    padding: 4% 2% 1%;
+}
+
 .box-main {
     margin: 5% 1% 0%;
     justify-content: center;

@@ -32,6 +32,11 @@
 
         <div class="col-lg-6 col-md-8 text-center">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.359475726946!2d{{restaurant.address.location.lng}}!3d{{restaurant.address.location.lat}}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI2JzI0LjIiTiA5OcKwMDcnMzcuNCJX!5e0!3m2!1sen!2smx!4v1615108056556!5m2!1sen!2smx" width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <div class="btn-rest-maps">
+          <form action="https://www.google.com/maps/place/{{restaurant.address.location.lat}},%20{{restaurant.address.location.lng}}" target="_blank">
+              <input class="btn-warning" type="submit" value="Find in Maps" />
+          </form>
+          </div>
         </div>
     </div>
 </div>
